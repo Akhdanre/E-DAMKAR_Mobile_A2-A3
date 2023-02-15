@@ -1,5 +1,5 @@
 
 
-class stack1{
+class sup{
   
 }
