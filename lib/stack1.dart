@@ -1,5 +1,5 @@
 
 
-class sup{
+class Sup{
   
 }

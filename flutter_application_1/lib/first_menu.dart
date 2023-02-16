@@ -1,3 +1,0 @@
-class first_menu{
-
-}

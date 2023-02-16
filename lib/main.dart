@@ -51,28 +51,11 @@ class MyHomePage extends StatefulWidget {
 
 // //
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter--;
-    });
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: TextField(
-            ),
-          )
-        ],
-      )),
+      body: Text("belajar"),
     );
   }
 }
