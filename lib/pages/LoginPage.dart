@@ -2,14 +2,22 @@ import 'dart:ffi';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project_semester_4/pages/splashScreen.dart';
 import 'package:project_semester_4/theme/color.dart';
 
-class FirstMenu extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  _FirstMenuState createState() => _FirstMenuState();
+  _LoginPage createState() => _LoginPage();
 }
 
-class _FirstMenuState extends State<FirstMenu> {
+class _LoginPage extends State<LoginPage> {
+
+  void _navigate(BuildContext context){
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SplasScreen()));
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,22 +118,38 @@ class _FirstMenuState extends State<FirstMenu> {
           ),
         ),
         SizedBox(height: 40),
-        InkWell(
-          child: new Container(
-              width: double.infinity,
-              margin: EdgeInsets.symmetric(horizontal: 50),
-              decoration: BoxDecoration(
-                  color: orange1, borderRadius: BorderRadius.circular(10)),
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                child: Text('Kata Sandi',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white)),
-              )),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 45),
+          child: Ink(
+            width: double.infinity,
+            decoration: BoxDecoration(
+                color: orange1,
+                borderRadius: BorderRadius.circular(10),
+                ),
+            child: InkWell(
+                onTap: () {
+                  _navigate(context);
+                },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Text('Kata Sandi',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white)),
+                ) // other widget
+                ),
+          ),
         ),
+        // InkWell(
+        //   child: Container(
+        //     width: double.infinity,
+        //     margin: EdgeInsets.symmetric(horizontal: 50),
+        //     decoration: BoxDecoration(
+        //         color: orange1, borderRadius: BorderRadius.circular(10)),
+        //   ),
+        // ),
         Spacer(),
         Container(
           height: 20,
