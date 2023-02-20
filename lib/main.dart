@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_semester_4/pages/EmergecyCallPage.dart';
 import 'package:project_semester_4/pages/LoginPage.dart';
 import 'package:project_semester_4/pages/SplashScreen.dart';
 

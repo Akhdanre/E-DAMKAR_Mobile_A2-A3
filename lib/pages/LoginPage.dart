@@ -2,6 +2,8 @@ import 'dart:ffi';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:project_semester_4/pages/HomePage.dart';
 import 'package:project_semester_4/pages/splashScreen.dart';
 import 'package:project_semester_4/theme/color.dart';
 
@@ -11,12 +13,35 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPage extends State<LoginPage> {
+  final TextEditingController username = TextEditingController();
+  final TextEditingController pass = TextEditingController();
 
-  void _navigate(BuildContext context){
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SplasScreen()));
+  @override
+  void dispose() {
+    username.dispose();
+    pass.dispose();
+    super.dispose();
   }
 
+  void show(String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: white,
+        textColor: black);
+  }
 
+  void _navigate(BuildContext context) {
+    if(username.text == 'akhdan' && pass.text == "super123"){
+      Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => HomePage()));
+    }else{
+      show("username atau password yang anda masukkan salah");
+    }
+    
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +85,7 @@ class _LoginPage extends State<LoginPage> {
                     decoration: BoxDecoration(
                         color: grey1, borderRadius: BorderRadius.circular(10)),
                     child: TextField(
+                      controller: username,
                       cursorColor: black,
                       style: TextStyle(
                           fontSize: 17,
@@ -93,6 +119,7 @@ class _LoginPage extends State<LoginPage> {
                     decoration: BoxDecoration(
                         color: grey1, borderRadius: BorderRadius.circular(10)),
                     child: TextField(
+                      controller: pass,
                       obscureText: true,
                       cursorColor: black,
                       style: TextStyle(
@@ -123,9 +150,9 @@ class _LoginPage extends State<LoginPage> {
           child: Ink(
             width: double.infinity,
             decoration: BoxDecoration(
-                color: orange1,
-                borderRadius: BorderRadius.circular(10),
-                ),
+              color: orange1,
+              borderRadius: BorderRadius.circular(10),
+            ),
             child: InkWell(
                 onTap: () {
                   _navigate(context);
@@ -142,14 +169,6 @@ class _LoginPage extends State<LoginPage> {
                 ),
           ),
         ),
-        // InkWell(
-        //   child: Container(
-        //     width: double.infinity,
-        //     margin: EdgeInsets.symmetric(horizontal: 50),
-        //     decoration: BoxDecoration(
-        //         color: orange1, borderRadius: BorderRadius.circular(10)),
-        //   ),
-        // ),
         Spacer(),
         Container(
           height: 20,
