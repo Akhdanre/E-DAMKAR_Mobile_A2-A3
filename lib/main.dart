@@ -19,6 +19,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: GoogleFonts.poppins().fontFamily
         ),
-        home: SplasScreen());
+        home: EmergencyCallPage());
   }
 }
